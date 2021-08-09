@@ -2,8 +2,8 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,25 +13,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initMenuButtons() {
-        val menuButton = findViewById<Button>(R.id.menu_button)
-        menuButton.setOnClickListener {
-            Toast.makeText(this, R.string.menu_button, Toast.LENGTH_SHORT).show()
+        topAppBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.settings -> {
+                    Toast.makeText(this, "Настройки", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
         }
-        val favoritesButton = findViewById<Button>(R.id.favorites_button)
-        favoritesButton.setOnClickListener {
-            Toast.makeText(this, R.string.favorites_button, Toast.LENGTH_SHORT).show()
-        }
-        val watchLaterButton = findViewById<Button>(R.id.watch_later_button)
-        watchLaterButton.setOnClickListener {
-            Toast.makeText(this, R.string.watch_later_button, Toast.LENGTH_SHORT).show()
-        }
-        val collectionsButton = findViewById<Button>(R.id.collections_button)
-        collectionsButton.setOnClickListener {
-            Toast.makeText(this, R.string.collections_button, Toast.LENGTH_SHORT).show()
-        }
-        val settingsButton = findViewById<Button>(R.id.settings_button)
-        settingsButton.setOnClickListener {
-            Toast.makeText(this, R.string.settings_button, Toast.LENGTH_SHORT).show()
+        bottom_navigation.setOnNavigationItemSelectedListener {
+
+            when (it.itemId) {
+                R.id.favorites -> {
+                    Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.watch_later -> {
+                    Toast.makeText(this, "Посмотреть похже", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.selections -> {
+                    Toast.makeText(this, "Подборки", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
         }
     }
 }
