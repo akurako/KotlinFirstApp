@@ -7,6 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="menu_text_icons">#FFFFFF</color>
-    <color name="menu_back">#FF5722</color>
+    <color name="menu_text_icons">#9E9D9D</color>
+    <color name="menu_back">#272727</color>
 </resources>
